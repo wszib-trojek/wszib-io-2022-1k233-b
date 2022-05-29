@@ -18,10 +18,28 @@ class Trojkaty {
 	   System.out.println("Trójkąt równoramienny");
 	 }
     }
+
+/**
+                * Funkcja zwraca ile par odcinków trójkąta ma jednakową długość.
+                * @param {float} a - Długość pierwszego boku.
+                * @param {float} b - Długość drugiego boku.
+                * @param {float} c - Długość trzeciego boku.
+                */
+               public static int ileJednakowych(float a, float b, float c){
+                   int jednakowe = 0; // tutaj zliczamy ile jest jednakowych bokow
+                   if (a == b) {
+                      jednakowe++;
+                   }
+                   if (b == c) {
+                      jednakowe++;
+                   }
+                   return jednakowe;
+               }
+
     /** Wyświetla ekran pomocy */
     public static void pomoc(){
         System.out.println("Acme INC. (C) 2022");
-        System.out.println("Program do rozpoznawania rodzaju trójkąra");
+        System.out.println("Program do rozpoznawania rodzaju trójkąta");
         System.out.println("Uruchom z trzema argumentami liczbowymi - długość boków trójkąta");
     }
     /** Glowna funkcja */
@@ -38,7 +56,12 @@ class Trojkaty {
 		System.out.println("Długości boków trójkąta muszą być nieujemne!");
 		System.exit(2);
 	}
-
+	int jednakoweDlugosci = ileJednakowych(a, b, c); // tutaj zliczamy ile jest jednakowych bokow
+                   if (jednakoweDlugosci > 1) {
+                       System.out.println("Trójkąt równoboczny"); 
+                   } else if (jednakoweDlugosci > 0) {
+                       System.out.println("Trójkąt równoramienny");
+                   }
         jakiTrojkat(a, b, c);
     }
 }
