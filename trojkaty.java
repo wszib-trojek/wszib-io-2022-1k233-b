@@ -4,9 +4,9 @@
 
 class Trojkaty {
     /**
-     * Główna fnukcja programu.
+     * Główna funkcja programu.
      * @param {float} a - Długość pierwszego boku.
-     * @param {float} b - Długość drugiegio boku.
+     * @param {float} b - Długość drugiego boku.
      * @param {float} c - Długość trzeciego boku.
      */
     public static void jakiTrojkat(float a, float b, float c){
@@ -14,6 +14,9 @@ class Trojkaty {
              System.out.println("Trójkąt równoboczny"); 
          }
          // TODO: tutaj trzeba bedzie dopisac inne przypadki
+	 if ( a==b || b==c || a==c){
+	   System.out.println("Trójkąt równoramienny");
+	 }
     }
     /** Wyświetla ekran pomocy */
     public static void pomoc(){
@@ -30,7 +33,12 @@ class Trojkaty {
         float a = Float.valueOf(args[0]);
         float b = Float.valueOf(args[1]);
         float c = Float.valueOf(args[2]);
-        
+       
+	if(a<0||b<0||c<0){
+		System.out.println("Długości boków trójkąta muszą być nieujemne!");
+		System.exit(2);
+	}
+
         jakiTrojkat(a, b, c);
     }
 }
